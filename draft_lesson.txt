@@ -1,12 +1,10 @@
-SIMULATING Q-DAY
+Q-DAY VISUALIZED
 
-A small demonstration on how Q-Day will mathematically work, and the repercussions it will have on us human people.
-
-1. Setting the Stage
+Google has set "Q Day" for 2029. But what is it, and why are so many people panicking about it?
 
 THE ORIGIN OF SECRETS 
 
-A long time ago, people realized that information was a form of currency. This would then go on to create the idea of "secrets," or information that was valuable. However, it didn't take long for people to realize that bad people would try to use devious ways to steal these secrets and gain financial, moral, or military power. 
+To understand "Q Day" and its threatening nature, we need to go far back in history. A long time ago, people realized that information was a form of currency. This would then go on to create the idea of "secrets," or information that was valuable. However, it didn't take long for people to realize that bad people would try to use devious ways to steal these secrets and gain financial, moral, or military power. 
 
 THE ORIGIN OF CRYPTOGRAPHY
 
@@ -22,7 +20,7 @@ PUBLIC AND PRIVATE KEYS
 
 Previously, we have discussed the usage of "symmetric" cryptography. The key or transformation used to decode is the same as the key or transformation used to encode information. In symmetric cryptography, an initial secure channel would be needed for the key to be exchanged. This presented a lot of problems when scaling the amount of receivers and transmitters. People wanted to be able to send secret messages without EVER having a secure channel.
 
-This prompted the invention of "asymmetric" cryptography. This is the exact point when Q-day became possible. It gets a little confusing here, so let's recoup with some definitions:
+This prompted the invention of "asymmetric" cryptography--a cryptographic protocol that doesn't require any secure channels. This is the exact point when Q-day became possible. It gets a little confusing here, so let's recoup with some definitions:
 
 * Unencrypted message: information that is to be sent without any disguise.
 * Symmetric key: a key that can lock and also unlock the message.
@@ -30,3 +28,61 @@ This prompted the invention of "asymmetric" cryptography. This is the exact poin
 * Private channel: the channel which only the transmitter and the designated receiver can send information through. Think of it as a solid, opaque pipe that you can throw stuff to each other through.
 * Public channel: a channel in which everyone can snatch what message you are transmitting. It's like throwing your message or lockbox in the air and someone being able to catch it.
 * Asymmetric key: the key that can unlock the lockbox is different from the key that locks the lockbox.
+
+MODERN CRYPTOGRAPHIC PROTOCALS
+
+While asymmetric encryption might seem like magic, it isn't a perfect solution. It relies on our current inability to do certain heavy computations. Theoretically, it isn't actually secure, but practically, a computer would take longer than the age of the universe to compute just one asymmetric key. The two main mathematical deployments of asymmetric encryption are RSA and elliptic curve cryptography (ECC). In the following example, we will dive into how RSA works, why its safe for modern computers, and why quantum computers pose a threat called "Q Day"
+
+RSA EXAMPLE
+
+Let's say you are purchasing a shirt online. In order to pay for it, you need to "digitally swipe" your credit card. Type in a mock credit card number below:
+
+[Input box for message]
+
+That credit card number must be encrypted so bad actors can't use it if its intercepted in the air (or in other words, the public channel). In order to do this, the web uses RSA encryption. RSA begins by generating a metaphorical open lock (or what is technically called a public key) on the end of the reciever (the shirt company).
+
+[Math for generating the public key]
+
+This public key is then sent to you (the buyer), who is yet to send the credit card details. You take the open lock (the public key), and shut that lock through a few mathematical operations. Keep in mind, the only person who ever accesses the private key for the message is the receiver of the message (the shirt company).
+
+[Math for closing lock and encrypting message]
+
+The encrypted message (stored safely in its locked box) is then sent from you to the shirt company. Once the shirt company receives it, they utilize their key (technically termed the private key) and unlock it, to receive your credit card details and process the payment.
+
+[decoding with the private key math]
+
+CLASSICAL BAD ACTORS
+
+Now, what if there was someone trying to intercept the RSA-encrypted credit card details with a normal computer. Due to how computationally expensive it is to reverse the encryption process, they wouldn't be able to do it. But in our case, we use a small RSA key, which means they could decrypt it. However, when the RSA keys become bigger, classical computation exponentially scales in time. Ultimately, classical computers are rendered useless.
+
+[Graph that shows RSA key size to computation time]
+
+QUANTUM BAD ACTORS
+
+Unlike classical computers, quantum computer's are really good at factoring prime numbers and doing certain calculations much quicker. This means that it might just take a few hours for them to crack large RSA key. In our example, we use _-bit RSA, which is much smaller than the internet's standards. We do this because we want to show you a practical implementation of a quantum circuit decoding an RSA-encrypted message. First, type in another mock credit card number, pretending you are sending it to the shirt company again.
+
+[Input box for credit card number]
+
+Now, both the quantum bad actor and the designated shirt company receive your encrypted message. The shirt company decrypts with their private key.
+
+[Shirt company decrypting again, skipping showing as much of the RSA math this time]
+
+However, the quantum bad actor has implemented Shor's algorithm on a 10 qubit computer. Taking our key as the input, it runs its algorithm and deduces it without ever having access to the private key.
+
+[An image of Shor's algorithm]
+
+[A button to run Shor's algorithm leading to showing the output of it. This interfaces with Qiskit, and the image of Shor's algorithm is generated by Qiskit]
+
+FINALLY: Q-DAY
+
+So what is Q-Day? Right now, quantum computers aren't functionable with enough qubits to decrypt modern _-bit RSA. But their qubit-harnessing ability has been rising over the past few years, and multiple companies are expecting a day when they will have enough qubits to run Shor's algorithm on modern RSA codes. This means that every secret message, bank detail, and internal communication, will no longer be deemed safely private. Along with that, bad actors have been intercepting encrypted messages with the hopes of saving them for when Q-Day finally happens. This means they will have a massive backlog of highly valuable messages to steal when the technology is ready.
+
+WHAT HAPPENS AFTER Q-DAY?
+
+Researchers and engineers are working diligently to create "post-quantum" cryptography.
+
+
+
+
+Sources:
+https://www.keyfactor.com/blog/google-just-moved-the-q-day-deadline-to-2029-heres-what-that-means-for-you/
