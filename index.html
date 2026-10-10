@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QDayVisualized</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+
+    <!-- Overall title -->
+    <h1 class="title">SIMULATING Q-DAY</h1>
+
+    <p class="text">
+      A small demonstration on how Q-Day will mathematically work, and the repercussions it will have on us human people.
+    </p>
+
+    <section>
+      <h3 class="section-title">THE ORIGIN OF SECRETS</h3>
+      <p class="text">
+        A long time ago, people realized that information was a form of currency. This would then go on to create the idea of "secrets," or information that was valuable. However, it didn't take long for people to realize that bad people would try to use devious ways to steal these secrets and gain financial, moral, or military power.
+      </p>
+
+      <h3 class="section-title">THE ORIGIN OF CRYPTOGRAPHY</h3>
+      <p class="text">
+        In order to keep their power, owners of secrets sought ways to increase the security of their secrets. One way, called steganography, involved hiding the secrets in hard to find, or inconspicuous places. Steganography has a downside, though: once the secret is found, it can simply be read and stolen. So in comes cryptography, a way of making a piece of information concealed by transforming its appearance by some mathematical rule.
+      </p>
+      <p class="subtext">
+        Example: Imagine I want to tell my friend a secret that is a string of characters, such as, "The money is stored under the bed." It would be horrible if somebody else heard! The catch is: I can only tell him this secret in a public place (you will see that this issue--the necessity of sharing information over public channels--is the reason cryptography is a thing in the first place. If you could always access a private place to share information, then there would be no need for cryptography. However, that is often not the case). Therefore, we agree to meet up in a private place beforehand and exchange "the mathematical rules of my cypher/transformation." Afterwards, when we are in public next and I want to tell him my secret, I apply the transformation in my head, tell him the transformed and unintelligible mix of letters, and then he de-transforms it in his head to gain the information I told him.
+      </p>
+
+      <h3 class="section-title">THE EVOLUTION OF CRYPTOGRAPHY</h3>
+      <p class="text">
+        As time went on, people realized that the manual form of exchanging cyphers/transformations was becoming tiring and becoming computationally difficult for their own heads. This was also when the computers and wireless communication began. Just like two people speaking in public, exchanged information in airwaves could be intercepted, or "heard," by bad actors. This meant that cyphers had to be applied. But physically travelling to and from transmission and receiving locations to make sure each side of the communication channel knew the cyphers was becoming tiresome, so an automated way of cryptography was needed. At last, we arrive at public and private key encryption.
+      </p>
+
+      <h3 class="section-title">PUBLIC AND PRIVATE KEYS</h3>
+      <p class="text">
+        Previously, we have discussed the usage of "symmetric" cryptography. The key or transformation used to decode is the same as the key or transformation used to encode information. In symmetric cryptography, an initial secure channel would be needed for the key to be exchanged. This presented a lot of problems when scaling the amount of receivers and transmitters. People wanted to be able to send secret messages without EVER having a secure channel.
+      </p>
+      <p class="text">
+        This prompted the invention of "asymmetric" cryptography. This is the exact point when Q-day became possible. It gets a little confusing here, so let's recoup with some definitions:
+      </p>
+      <ul class="text">
+        <li>Unencrypted message: information that is to be sent without any disguise.</li>
+        <li>Symmetric key: a key that can lock and also unlock the message.</li>
+        <li>Encrypted message: The lockbox that goes around the message that the key can lock and unlock.</li>
+        <li>Private channel: the channel which only the transmitter and the designated receiver can send information through. Think of it as a solid, opaque pipe that you can throw stuff to each other through.</li>
+        <li>Public channel: a channel in which everyone can snatch what message you are transmitting. It's like throwing your message or lockbox in the air and someone being able to catch it.</li>
+        <li>Asymmetric key: the key that can unlock the lockbox is different from the key that locks the lockbox.</li>
+      </ul>
+
+      <div class="module" data-module="account-converter">
+        <form class="account-form" novalidate>
+          <label for="mock-account-number">Mock bank account number</label>
+          <input
+            id="mock-account-number"
+            name="account-number"
+            type="text"
+            inputmode="numeric"
+            maxlength="10"
+            autocomplete="off"
+            aria-describedby="account-number-hint"
+          >
+          <p class="subtext" id="account-number-hint">Do not enter your actual bank account number.</p>
+          <button type="submit">Convert</button>
+        </form>
+        <p class="conversion-message" role="status" aria-live="polite"></p>
+        <div class="conversion-results" hidden>
+          <p><strong>Stored integer:</strong> <output class="integer-result"></output></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
